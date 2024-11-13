@@ -1,12 +1,11 @@
 package com.anthonylopes.List.project.entities;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.util.Objects;
 
 @Entity
-@Table(name ="tbgames")
+@Table(name = "tbgames")
 public class Games {
 
     @Id
@@ -16,20 +15,24 @@ public class Games {
     @Column(name = "game_year")
     private int year;
     private String genre;
-    private String plataform;
+    private String platforms;
+    private double score;
     private String imgUrl;
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Games() {
     }
 
-    public Games(long id, String title, int year, String genre, String plataform, String imgUrl, String shortDescription, String longDescription) {
+    public Games(long id, String title, int year, String genre, String plataform, double score, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.genre = genre;
-        this.plataform = plataform;
+        this.platforms = plataform;
+        this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -67,12 +70,20 @@ public class Games {
         this.genre = genre;
     }
 
-    public String getPlataform() {
-        return plataform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlataform(String plataform) {
-        this.plataform = plataform;
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
     }
 
     public String getImgUrl() {
